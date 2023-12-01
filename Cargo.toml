@@ -1,0 +1,13 @@
+[package]
+name = "blog"
+version = "0.1.0"
+edition = "2021"
+
+authors = [ "Ben McAvoy <ben.mcavoy@tutanota.com>" ]
+license = "MIT"
+
+description = "My personal blog"
+repository = "https://github.com/BenMcAvoy/Blog"
+homepage = "https://github.com/BenMcAvoy/Blog"
+
+[dependencies]
