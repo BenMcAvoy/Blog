@@ -9,13 +9,8 @@
 
     <title>Rust Bytes</title>
   </head>
-  <body class="bg-white dark:bg-gray-800 dark:text-white">
-    {% include "nav" %}
-    {% block content %}{% endblock content %}
-
-    <footer>
-      <a href="/">Home</a>
-    </footer>
+  <body class="dark:bg-black-800 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto">
+    {% include "nav" %}{% block content %}{% endblock content %}
   </body>
 </html>
 
