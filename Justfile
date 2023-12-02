@@ -1,4 +1,5 @@
 run:
+  ./tailwind -i styles.scss -o public/styles.css
   cargo watch -x run
 
 setup:
@@ -8,3 +9,4 @@ setup:
 clean:
   cargo clean
   rm tailwind
+  rm public/styles.css
