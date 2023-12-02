@@ -1,4 +1,5 @@
 alias p := package
+alias w := watch
 alias r := run
 alias s := setup
 alias c := clean
@@ -11,8 +12,16 @@ package:
 
 run:
   just --justfile {{justfile()}} setup
-  ./tailwind -i styles.scss -o public/styles.css --watch &
-  cargo watch -x run
+  ./tailwind -i styles.scss -o public/styles.css
+  cargo run
+
+watch:
+  @if ! which cargo-watch > /dev/null; then \
+    echo "cargo-watch is not installed"; \
+    cargo install cargo-watch; \
+  fi
+
+  cargo watch -s "just run"
 
 setup:
   ./scripts/tailwind-download.sh
