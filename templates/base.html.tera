@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="/public/styles.css">
 
-    <title>Blog</title>
+    <title>Rust Bytes</title>
   </head>
   <body class="bg-white dark:bg-gray-800 dark:text-white">
     {% include "nav" %}
