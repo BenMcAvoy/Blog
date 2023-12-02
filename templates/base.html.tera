@@ -16,6 +16,8 @@
   <body class="font-inter bg-white dark:bg-black dark:text-white max-w-6xl mx-auto">
     {% include "nav" %}
 
+    <br>
+
     <div class="pl-4 pr-4">
       {% block content %}{% endblock content %}
     </div>
