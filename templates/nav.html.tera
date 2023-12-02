@@ -1,13 +1,14 @@
-<nav class="top-0 z-10 bg-opacity-75 backdrop-blur-sm bg-white dark:bg-black mb-4">
-  <div class="max-w-5xl mx-auto px-4">
-    <div class="flex items-center justify-between h-16 border-b
-      border-gray-200 dark:border-white">
-      <span class="text-2xl text-black dark:text-white font-semibold">Rust Bytes</span>
-      <div class="flex space-x-4 text-black dark:text-white">
-        <a href="/">Home</a>
-        <a href="/posts/">Posts</a>
-        <a href="/projects/">Projects</a>
-      </div>
-    </div>
-  </div>
+<nav class="sticky top-10 z-10 bg-white dark:bg-black mb-16">
+ <div class="max-w-6xl mx-auto px-4">
+ <div class="flex flex-col justify-between h-16">
+   <div class="flex justify-between w-full">
+     <span class="text-4xl text-black dark:text-white font-extrabold">Rust Bytes</span>
+   </div>
+   <div class="flex justify-end space-x-4 text-gray-900 dark:text-white underline">
+     <a href="/">Home</a>
+     <a href="/posts/">Posts</a>
+     <a href="/projects/">Projects</a>
+   </div>
+ </div>
+ </div>
 </nav>
