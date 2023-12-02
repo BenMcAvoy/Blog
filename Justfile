@@ -4,11 +4,13 @@ alias s := setup
 alias c := clean
 
 package:
+  just --justfile {{justfile()}} setup
   ./tailwind -i styles.scss -o public/styles.css --minify
   cargo build --release
   ./scripts/package.sh
 
 run:
+  just --justfile {{justfile()}} setup
   ./tailwind -i styles.scss -o public/styles.css --watch &
   cargo watch -x run
 
