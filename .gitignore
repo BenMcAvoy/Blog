@@ -15,3 +15,6 @@ Cargo.lock
 
 # Tailwind CLI
 tailwind
+
+# Tailwind output
+public/styles.css
