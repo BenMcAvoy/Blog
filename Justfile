@@ -3,16 +3,17 @@ alias r := run
 alias s := setup
 alias c := clean
 
-build:
+package:
   ./tailwind -i styles.scss -o public/styles.css --minify
   cargo build --release
+  ./scripts/package.sh
 
 run:
-  ./tailwind -i styles.scss -o public/styles.css
+  ./tailwind -i styles.scss -o public/styles.css --watch &
   cargo watch -x run
 
 setup:
-  bash ./scripts/tailwind-download.sh
+  ./scripts/tailwind-download.sh
   chmod +x ./tailwind
 
 clean:
