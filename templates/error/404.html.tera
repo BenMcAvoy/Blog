@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>404 - tera</title>
-  </head>
-  <body>
-    <h1>404, No page found</h1>
-    The page at {{ uri }} cannot be found, sorry!
-  </body>
-</html>
+{% extends "base" %}
+
+{% block content %}
+    <h1>404 Page not found</h1>
+    <p>The page at {{ uri }} cannot be found, sorry!</p>
+{% endblock content %}
