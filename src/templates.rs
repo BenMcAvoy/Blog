@@ -8,7 +8,7 @@ pub fn index() -> Template {
 
 #[catch(404)]
 pub fn not_found(req: &Request<'_>) -> Template {
-    Template::render("404", context! {
+    Template::render("error/404", context! {
         uri: req.uri()
     })
 }
