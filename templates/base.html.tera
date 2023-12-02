@@ -9,7 +9,7 @@
 
     <title>Rust Bytes</title>
   </head>
-  <body class="dark:bg-black-800 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto">
+  <body class="bg-white dark:bg-black px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto">
     {% include "nav" %}{% block content %}{% endblock content %}
   </body>
 </html>
