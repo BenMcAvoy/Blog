@@ -5,7 +5,15 @@ module.exports = {
   ],
 
   theme: {
-    extend: {},
+      fontFamily: {
+        'inter': ['Inter var', 'sans-serif'],
+      },
+
+    extend: {
+      colors: {
+        black: '#121212',
+      }
+    },
   },
 
   plugins: [],
