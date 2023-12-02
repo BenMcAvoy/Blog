@@ -1,4 +1,4 @@
-alias b := build
+alias p := package
 alias r := run
 alias s := setup
 alias c := clean
