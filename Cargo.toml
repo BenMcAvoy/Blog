@@ -11,3 +11,5 @@ repository = "https://github.com/BenMcAvoy/Blog"
 homepage = "https://github.com/BenMcAvoy/Blog"
 
 [dependencies]
+rocket = "0.5.0"
+rocket_dyn_templates = { version = "0.1.0", features = ["tera"] }
