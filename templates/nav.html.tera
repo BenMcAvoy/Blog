@@ -1,1 +1,13 @@
-<h1>Nav</h1>
+<nav class="top-0 z-10 bg-opacity-75 backdrop-blur-sm bg-white dark:bg-black-800 mb-4">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16 border-b
+      border-gray-200 dark:border-gray-700">
+      <span class="text-2xl text-black dark:text-white font-semibold">Rust Bytes</span>
+      <div class="flex space-x-4 text-black dark:text-white">
+        <a href="/">Home</a>
+        <a href="/posts/">Posts</a>
+        <a href="/projects/">Projects</a>
+      </div>
+    </div>
+  </div>
+</nav>
