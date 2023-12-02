@@ -4,7 +4,7 @@
    <div class="flex justify-between w-full">
      <span class="text-4xl text-black dark:text-white font-extrabold">Rust Bytes</span>
    </div>
-   <div class="flex justify-end space-x-4 text-gray-900 dark:text-white underline">
+   <div class="flex justify-end space-x-4 text-black dark:text-white underline">
      <a href="/">Home</a>
      <a href="/posts/">Posts</a>
      <a href="/projects/">Projects</a>
