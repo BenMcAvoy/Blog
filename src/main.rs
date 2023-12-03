@@ -13,7 +13,7 @@ mod utils;
 
 use rocket_dyn_templates::Template;
 
-struct PostStorage {
+pub struct PostStorage {
     pub posts: Vec<Post>
 }
 
