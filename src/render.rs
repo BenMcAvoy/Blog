@@ -5,6 +5,11 @@ use std::{borrow::Cow, fmt::Display};
 
 const THEME: &str = "base16-eighties.dark";
 
+/// Takes in the name of a page and renders it to HTML
+/// as a string.
+///
+/// `S` is any type that is a string slice and implements
+/// the Display trait.
 pub fn render<S>(name: S) -> String
 where
     S: Into<Cow<'static, str>> + Display,
