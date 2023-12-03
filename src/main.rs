@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate rocket;
 
-use posts::load_posts;
+use posts::{load_posts, Post};
 use rocket::fs::{FileServer, NamedFile};
 
 mod templates;
@@ -12,6 +12,10 @@ mod render;
 mod utils;
 
 use rocket_dyn_templates::Template;
+
+struct State {
+    pub posts: Vec<Post>
+}
 
 #[get("/robots.txt")]
 async fn robots() -> Option<NamedFile> {
@@ -29,9 +33,8 @@ fn rocket() -> _ {
 
     let posts = load_posts(paths);
 
-    dbg!(posts);
-
     rocket::build()
+        .manage(State { posts })
         .register("/", catchers![not_found, internal_error])
         .mount("/public", FileServer::from("public/"))
         .mount("/", routes![index, robots, get_post, get_posts])
