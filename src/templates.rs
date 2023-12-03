@@ -1,5 +1,5 @@
 use rocket::*;
-use rocket_dyn_templates::{context, tera::Context, Template};
+use rocket_dyn_templates::{context, Template};
 
 use crate::{render::render, utils::calculate_age, PostStorage};
 
@@ -17,11 +17,9 @@ pub fn index() -> Template {
 
 #[get("/posts")]
 pub fn get_posts(state: &State<PostStorage>) -> Template {
-    let mut context = Context::default();
-    context.insert("posts", &state.posts);
-    let html = render("index", Some(context));
+    let posts = &state.posts;
 
-    Template::render("post", context! { html })
+    Template::render("posts", context! { posts })
 }
 
 #[get("/posts/<name>")]
