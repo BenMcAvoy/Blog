@@ -7,9 +7,9 @@ use rocket::fs::{FileServer, NamedFile};
 mod templates;
 use templates::*;
 
+mod posts;
 mod render;
 mod utils;
-mod posts;
 
 use rocket_dyn_templates::Template;
 
