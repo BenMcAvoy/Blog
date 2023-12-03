@@ -13,7 +13,7 @@ mod utils;
 
 use rocket_dyn_templates::Template;
 
-struct State {
+struct PostStorage {
     pub posts: Vec<Post>
 }
 
@@ -34,7 +34,7 @@ fn rocket() -> _ {
     let posts = load_posts(paths);
 
     rocket::build()
-        .manage(State { posts })
+        .manage(PostStorage { posts })
         .register("/", catchers![not_found, internal_error])
         .mount("/public", FileServer::from("public/"))
         .mount("/", routes![index, robots, get_post, get_posts])
