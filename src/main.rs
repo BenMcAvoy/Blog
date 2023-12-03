@@ -8,6 +8,7 @@ use templates::*;
 
 mod render;
 mod utils;
+mod posts;
 
 use rocket_dyn_templates::Template;
 
