@@ -17,7 +17,14 @@ pub fn index() -> Template {
 
 #[get("/posts")]
 pub fn get_posts() -> Template {
-    todo!()
+    let html = render("index");
+
+    Template::render(
+        "post",
+        context! {
+            html
+        },
+    )
 }
 
 #[get("/posts/<name>")]
