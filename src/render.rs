@@ -20,7 +20,7 @@ where
     let mut tera = Tera::default();
     tera.add_raw_template("post", &markdown).unwrap();
 
-    let context = context.unwrap_or(Context::default());
+    let context = context.unwrap_or_default();
     let rendered_markdown = tera.render("post", &context).unwrap();
 
     // let parser = Parser::new_ext(&rendered_markdown, Options::all());
