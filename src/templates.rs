@@ -1,5 +1,10 @@
-use rocket::*;
-use rocket_dyn_templates::{context, Template};
+use pulldown_cmark::{html, Options, Parser};
+use rocket::{response::content::RawHtml, *};
+use rocket_dyn_templates::{
+    context,
+    tera::{Context, Tera},
+    Template,
+};
 
 use crate::utils::calculate_age;
 
@@ -13,6 +18,27 @@ pub fn index() -> Template {
             age: calculate_age(BIRTHDATE),
         },
     )
+}
+
+#[get("/<name>")]
+pub fn get_post(name: String) -> RawHtml<String> {
+    let path = format!("./templates/posts/{name}.md");
+
+    let markdown = std::fs::read_to_string(path).expect("Valid post");
+
+    let mut tera = Tera::default();
+    tera.add_raw_template("post", &markdown).unwrap();
+
+    let context = Context::new();
+
+    let rendered_markdown = tera.render("post", &context).unwrap();
+
+    let parser = Parser::new_ext(&rendered_markdown, Options::all());
+
+    let mut html = String::new();
+    html::push_html(&mut html, parser);
+
+    RawHtml(html)
 }
 
 #[catch(404)]
