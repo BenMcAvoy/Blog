@@ -28,6 +28,7 @@ fn rocket() -> _ {
         .expect("Templates directory to exist")
         .filter_map(Result::ok)
         .filter(|e| e.path().extension() == Some(std::ffi::OsStr::new("md")))
+        .filter(|e| e.path().file_stem().unwrap().to_str().unwrap() != "index")
         .map(|e| e.path().file_stem().unwrap().to_str().unwrap().to_string())
         .collect::<Vec<_>>();
 
