@@ -14,7 +14,7 @@ mod utils;
 use rocket_dyn_templates::Template;
 
 pub struct PostStorage {
-    pub posts: Vec<Post>
+    pub posts: Vec<Post>,
 }
 
 #[get("/robots.txt")]
