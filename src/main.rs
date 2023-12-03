@@ -6,6 +6,7 @@ use rocket::fs::{FileServer, NamedFile};
 mod templates;
 use templates::*;
 
+mod render;
 mod utils;
 
 use rocket_dyn_templates::Template;
