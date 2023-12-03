@@ -1,6 +1,7 @@
 use crate::render::render;
+use serde::Serialize;
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct Post {
     pub content: String,
     pub name: String,
