@@ -18,7 +18,7 @@ pub fn load_posts(filenames: Vec<String>) -> Vec<Post> {
     filenames
         .into_iter()
         .map(|filename| {
-            let html = render(filename.clone());
+            let html = render(filename.clone(), None);
             let path = format!("/posts/{}", filename);
 
             let name: String = filename

@@ -10,7 +10,7 @@ const THEME: &str = "base16-eighties.dark";
 ///
 /// `S` is any type that is a string slice and implements
 /// the Display trait.
-pub fn render<S>(name: S) -> String
+pub fn render<S>(name: S, context: Option<Context>) -> String
 where
     S: Into<Cow<'static, str>> + Display,
 {
@@ -20,7 +20,7 @@ where
     let mut tera = Tera::default();
     tera.add_raw_template("post", &markdown).unwrap();
 
-    let context = Context::new();
+    let context = context.unwrap_or(Context::default());
     let rendered_markdown = tera.render("post", &context).unwrap();
 
     // let parser = Parser::new_ext(&rendered_markdown, Options::all());
