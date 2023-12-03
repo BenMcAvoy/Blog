@@ -1,4 +1,4 @@
-use chrono::{NaiveDate, Utc, Datelike};
+use chrono::{Datelike, NaiveDate, Utc};
 
 pub fn calculate_age(birthdate: Option<NaiveDate>) -> i32 {
     let birthdate = birthdate.expect("Date functions to work");
