@@ -2,5 +2,5 @@
 
 {% block content %}
   <h1 class="text-2xl font-bold">About me</h1>
-  <p>Hey there, I'm Ben McAvoy and I'm a developer interested in projects lower down to the system. I'm currently working on a game engine wrote in Rust.</p>
+  <p>Hey there, I'm Ben McAvoy and I'm a developer interested in projects lower down to the system. I'm currently working on a game engine wrote in Rust and I am currently {{age}} years old.</p>
 {% endblock content %}
