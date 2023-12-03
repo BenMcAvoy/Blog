@@ -19,7 +19,7 @@ async fn robots() -> Option<NamedFile> {
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .register("/", catchers![templates::not_found])
+        .register("/", catchers![not_found, internal_error])
         .mount("/public", FileServer::from("public/"))
         .mount("/", routes![index, robots, get_post, get_posts])
         .attach(Template::fairing())

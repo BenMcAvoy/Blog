@@ -1,5 +1,5 @@
-use rocket_dyn_templates::{context, Template};
 use rocket::*;
+use rocket_dyn_templates::{context, Template};
 
 use crate::{render::render, utils::calculate_age};
 
@@ -47,4 +47,9 @@ pub fn not_found(req: &Request<'_>) -> Template {
             uri: req.uri()
         },
     )
+}
+
+#[catch(500)]
+pub fn internal_error(_: &Request<'_>) -> Template {
+    Template::render("error/500", context! {})
 }
