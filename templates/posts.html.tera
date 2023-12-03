@@ -1,0 +1,13 @@
+{% extends "base" %}
+
+{% block content %}
+{% for post in posts %}
+<div class="max-w-md mx-auto bg-white dark:bg-black border border-gray-700 rounded-xl shadow-md overflow-hidden md:max-w-2xl dark:text-white">
+  <div class="p-8">
+    <div class="tracking-wide text-sm text-indigo-500 dark:text-indigo-400 font-semibold">{{ post.name }}</div>
+    <p class="mt-2 text-gray-500 dark:text-gray-300">Placeholder</p>
+    <a href="{{ post.url }}" class="mt-4 text-indigo-600 dark:text-indigo-400 hover:underline">Read more</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
