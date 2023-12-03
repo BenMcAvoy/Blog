@@ -1,7 +1,7 @@
 use rocket::*;
-use rocket_dyn_templates::{context, Template};
+use rocket_dyn_templates::{context, tera::Context, Template};
 
-use crate::{render::render, utils::calculate_age};
+use crate::{render::render, utils::calculate_age, PostStorage};
 
 const BIRTHDATE: Option<chrono::NaiveDate> = chrono::NaiveDate::from_ymd_opt(2009, 3, 13);
 
@@ -16,20 +16,17 @@ pub fn index() -> Template {
 }
 
 #[get("/posts")]
-pub fn get_posts() -> Template {
-    let html = render("index");
+pub fn get_posts(state: &State<PostStorage>) -> Template {
+    let mut context = Context::default();
+    context.insert("posts", &state.posts);
+    let html = render("index", Some(context));
 
-    Template::render(
-        "post",
-        context! {
-            html
-        },
-    )
+    Template::render("post", context! { html })
 }
 
 #[get("/posts/<name>")]
 pub fn get_post(name: String) -> Template {
-    let html = render(name);
+    let html = render(name, None);
 
     Template::render(
         "post",
