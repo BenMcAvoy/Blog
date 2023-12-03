@@ -20,6 +20,6 @@ fn rocket() -> _ {
     rocket::build()
         .register("/", catchers![templates::not_found])
         .mount("/public", FileServer::from("public/"))
-        .mount("/", routes![index, robots])
+        .mount("/", routes![index, robots, get_post])
         .attach(Template::fairing())
 }
