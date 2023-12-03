@@ -5,6 +5,8 @@ use rocket::fs::{FileServer, NamedFile};
 mod templates;
 use templates::*;
 
+mod utils;
+
 use rocket_dyn_templates::Template;
 
 #[get("/robots.txt")]
