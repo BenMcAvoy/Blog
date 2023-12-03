@@ -1,10 +1,12 @@
 use pulldown_cmark::{html, Options, Parser};
-use rocket::{response::content::RawHtml, *};
+
 use rocket_dyn_templates::{
     context,
     tera::{Context, Tera},
     Template,
 };
+
+use rocket::*;
 
 use crate::utils::calculate_age;
 
@@ -36,9 +38,12 @@ pub fn get_post(name: String) -> Template {
     let mut html = String::new();
     html::push_html(&mut html, parser);
 
-    Template::render("post", context! {
-        html
-    })
+    Template::render(
+        "post",
+        context! {
+            html
+        },
+    )
 }
 
 #[catch(404)]
