@@ -1,4 +1,4 @@
-<nav class="sticky top-10 z-10 bg-white dark:bg-black mb-16">
+<nav class="my-4 z-10 bg-white dark:bg-black">
  <div class="max-w-6xl mx-auto px-4">
  <div class="flex flex-col justify-between h-16">
    <div class="flex justify-between w-full">
