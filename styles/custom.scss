@@ -5,7 +5,7 @@
 
 .title {
   @apply border border-dashed rounded-xl;
-  @apply mx-auto my-8 max-w-[35%] p-8;
+  @apply mx-auto my-8 lg:max-w-[35%] p-8;
   @apply text-center;
 }
 
