@@ -1,9 +1,6 @@
 {% extends "base" %}
 
 {% block content %}
-<h1>All posts</h1>
-<br>
-
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   {% for post in posts %}
     <div class="bg-white dark:bg-black border border-gray-700 rounded-xl shadow-md overflow-hidden dark:text-white">
@@ -15,5 +12,4 @@
     </div>
   {% endfor %}
 </div>
-
 {% endblock content %}
