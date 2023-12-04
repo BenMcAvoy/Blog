@@ -24,3 +24,7 @@ h1, h2 {
   word-wrap: normal !important;
   word-break: normal;
 }
+
+ol {
+  @apply list-decimal pl-8 py-2;
+}
