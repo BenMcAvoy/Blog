@@ -9,8 +9,8 @@ const THEME: &str = "base16-eighties.dark";
 /// Takes in the name of a page and renders it to HTML
 /// as a string.
 ///
-/// `S` is any type that is a string slice and implements
-/// the Display trait.
+/// `S` is any type that can be made into a string slice
+/// and implements the `Display` trait.
 pub fn render<S>(name: S, context: Option<Context>) -> String
 where
     S: Into<Cow<'static, str>> + Display,
