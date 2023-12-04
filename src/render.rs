@@ -1,5 +1,5 @@
 use highlight_pulldown::highlight_with_theme;
-use pulldown_cmark::{html, Parser, Options};
+use pulldown_cmark::{html, Options, Parser};
 use rocket_dyn_templates::tera::{Context, Tera};
 use std::{borrow::Cow, fmt::Display, fs::read_to_string};
 
