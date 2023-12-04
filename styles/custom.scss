@@ -1,0 +1,10 @@
+.code {
+  background-color: rgb(45, 45, 45);
+  @apply p-2 rounded-lg;
+}
+
+.title {
+  @apply border border-dashed rounded-xl;
+  @apply mx-auto my-8 max-w-[35%] p-8;
+  @apply text-center;
+}

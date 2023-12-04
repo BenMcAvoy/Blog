@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./accessibility.scss";
+@import "./custom.scss";
+@import "./lists.scss";
+
+h1 {
+  @apply text-2xl;
+}
+
+h1, h2 {
+  @apply font-bold;
+}
+
+th, td {
+  @apply p-2 border;
+}
+
+div.title h1 {
+  @apply h-full mb-4;
+}

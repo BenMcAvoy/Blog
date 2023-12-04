@@ -1,0 +1,11 @@
+@layer components {
+ ul {
+  @apply list-disc pl-5;
+ }
+ li {
+  @apply mb-1;
+ }
+ ol {
+  @apply list-decimal pl-5;
+ }
+}

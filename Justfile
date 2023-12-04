@@ -7,14 +7,14 @@ alias c := clean
 # Creates a standalone binary and copies resources
 package:
   just --justfile {{justfile()}} setup
-  ./tailwind -i styles.scss -o public/styles.css --minify
+  ./tailwind -i styles/main.scss -o public/styles.css --minify
   cargo build --release
   ./scripts/package.sh
 
 # Simply runs the blog in development page
 run:
   just --justfile {{justfile()}} setup
-  ./tailwind -i styles.scss -o public/styles.css
+  ./tailwind -i styles/main.scss -o public/styles.css
   cargo run
 
 # Rebuild the blog in development mode on file changes
