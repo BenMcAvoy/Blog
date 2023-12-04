@@ -24,3 +24,7 @@ div.title h1 {
 pre {
   @apply p-4 m-4 rounded-lg;
 }
+
+a {
+  @apply text-indigo-500 dark:text-indigo-400 !important;
+}
