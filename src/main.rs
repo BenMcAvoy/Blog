@@ -24,7 +24,7 @@ async fn robots() -> Option<NamedFile> {
 
 #[launch]
 fn rocket() -> _ {
-    let paths = std::fs::read_dir("templates/posts")
+    let paths = std::fs::read_dir("./posts")
         .expect("Templates directory to exist")
         .filter_map(Result::ok)
         .filter(|e| e.path().extension() == Some(std::ffi::OsStr::new("md")))
