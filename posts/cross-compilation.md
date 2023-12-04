@@ -1,3 +1,6 @@
-# Cross compilation
+<div class="title">
 
-In this post we will be talking about how cross compilation works in Rust and why it has advantages over other languages that may also have the ability for cross-compilation.
+# Cross compilation
+How cross compilation works in Rust, advantages of Rust and other information
+
+</div>

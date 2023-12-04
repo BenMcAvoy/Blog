@@ -1,3 +1,6 @@
-# Tera templating
+<div class="title">
 
-In this post we will be getting into how templating works in Rust. Specifically with a library called Tera. This library will feel like home for Jinja2/Django tempalting users.
+# Tera templating
+Templating in Rust with a library implementing Jinja2/Django templates
+
+</div>
