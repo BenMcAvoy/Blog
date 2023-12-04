@@ -37,3 +37,13 @@ ol {
 th, td {
   @apply p-2 border;
 }
+
+.title {
+  @apply border border-dashed rounded-xl;
+  @apply mx-auto my-8 max-w-[35%] p-8;
+  @apply text-center;
+}
+
+div.title h1 {
+  @apply h-full mb-4;
+}
