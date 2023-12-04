@@ -1,8 +1,9 @@
 use highlight_pulldown::highlight_with_theme;
 use pulldown_cmark::{html, Parser};
 use rocket_dyn_templates::tera::{Context, Tera};
-use std::{borrow::Cow, fmt::Display};
+use std::{borrow::Cow, fmt::Display, fs::read_to_string};
 
+/// The theme to use for rendering code snippets.
 const THEME: &str = "base16-eighties.dark";
 
 /// Takes in the name of a page and renders it to HTML
@@ -14,8 +15,8 @@ pub fn render<S>(name: S, context: Option<Context>) -> String
 where
     S: Into<Cow<'static, str>> + Display,
 {
-    let path = format!("./templates/posts/{name}.md");
-    let markdown = std::fs::read_to_string(path).expect("Valid post");
+    let path = format!("./posts/{name}.md");
+    let markdown = read_to_string(&path).unwrap_or_else(|_| panic!("Invalid post {path}"));
 
     let mut tera = Tera::default();
     tera.add_raw_template("post", &markdown).unwrap();
