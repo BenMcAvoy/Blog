@@ -10,7 +10,7 @@
 }
 
 h1, h2 {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold !important;
 }
 
 th, td {
@@ -27,4 +27,8 @@ pre {
 
 a {
   @apply text-indigo-500 dark:text-indigo-400 !important;
+}
+
+img {
+  @apply m-4 rounded-lg drop-shadow-md;
 }
