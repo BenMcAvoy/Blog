@@ -13,5 +13,6 @@ cp ./target/release/blog ./target/standalone/ -f
 echo "Copying resources"
 cp ./templates ./target/standalone/ -rf
 cp ./public ./target/standalone/ -rf
+cp ./posts ./target/standalone/ -rf
 
 echo "Package available at ./target/standalone/"
