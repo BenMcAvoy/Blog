@@ -3,6 +3,8 @@ use std::fs;
 use crate::render::render;
 use serde::Serialize;
 
+const DEFAULT_SUMMARY: &str = "Sorry, we couldn't generate a summary for this";
+
 #[derive(Debug, Serialize)]
 pub struct Post {
     pub content: String,
@@ -23,23 +25,15 @@ impl Post {
 }
 
 fn generate_summary(text: String) -> String {
-    // Split the input into lines and take the second line
-    let lines: Vec<&str> = text.lines().collect();
+    let result: String = text
+        .lines()
+        .nth(2)
+        .unwrap_or(DEFAULT_SUMMARY)
+        .chars()
+        .take(100)
+        .collect();
 
-    // TODO: Improve getting line
-    let text = lines[2];
-
-    // Convert the string into a vector of characters
-    let chars: Vec<char> = text.chars().collect();
-
-    // Convert the vector back into a string
-    let result: String = chars.into_iter().collect();
-
-    // Truncate the string to 250 characters
-    let mut truncated_result = result;
-    truncated_result.truncate(100);
-
-    truncated_result + "..."
+    result.trim_end().to_owned() + "..."
 }
 
 pub fn load_posts(filenames: Vec<String>) -> Vec<Post> {
@@ -49,8 +43,7 @@ pub fn load_posts(filenames: Vec<String>) -> Vec<Post> {
             let html = render(filename.clone(), None);
             let path = format!("/posts/{}", filename);
 
-            let filepath = format!("./templates/posts/{filename}.md");
-            dbg!(&filepath);
+            let filepath = format!("./posts/{filename}.md");
             let text = fs::read_to_string(filepath).expect("Valid path");
             let summary = generate_summary(text);
 
