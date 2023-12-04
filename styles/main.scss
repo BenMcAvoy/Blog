@@ -7,11 +7,10 @@
 @import "./lists.scss";
 
 h1 {
-  @apply text-2xl;
 }
 
 h1, h2 {
-  @apply font-bold;
+  @apply text-2xl font-bold;
 }
 
 th, td {
@@ -20,4 +19,8 @@ th, td {
 
 div.title h1 {
   @apply h-full mb-4;
+}
+
+pre {
+  @apply p-4 m-4 rounded-lg;
 }
