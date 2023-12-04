@@ -8,3 +8,19 @@
   @apply mx-auto my-8 max-w-[35%] p-8;
   @apply text-center;
 }
+
+h1, h2 {
+  @apply text-2xl font-bold;
+}
+
+th, td {
+  @apply p-2 border;
+}
+
+div.title h1 {
+  @apply h-full mb-4;
+}
+
+pre {
+  @apply p-4 m-4 rounded-lg;
+}
