@@ -1,5 +1,5 @@
 use highlight_pulldown::highlight_with_theme;
-use pulldown_cmark::{html, Parser};
+use pulldown_cmark::{html, Parser, Options};
 use rocket_dyn_templates::tera::{Context, Tera};
 use std::{borrow::Cow, fmt::Display, fs::read_to_string};
 
@@ -24,9 +24,8 @@ where
     let context = context.unwrap_or_default();
     let rendered_markdown = tera.render("post", &context).unwrap();
 
-    // let parser = Parser::new_ext(&rendered_markdown, Options::all());
-    let events = Parser::new(&rendered_markdown);
-    let events = highlight_with_theme(events, THEME).unwrap();
+    let parser = Parser::new_ext(&rendered_markdown, Options::all());
+    let events = highlight_with_theme(parser, THEME).unwrap();
 
     let mut html = String::new();
     html::push_html(&mut html, events.into_iter());
