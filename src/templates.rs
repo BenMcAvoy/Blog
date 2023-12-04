@@ -41,12 +41,13 @@ pub fn not_found(req: &Request<'_>) -> Template {
     Template::render(
         "error/404",
         context! {
-            uri: req.uri()
+            uri: req.uri(),
+            page: "none",
         },
     )
 }
 
 #[catch(500)]
 pub fn internal_error(_: &Request<'_>) -> Template {
-    Template::render("error/500", context! {})
+    Template::render("error/500", context! { page: "none" })
 }
