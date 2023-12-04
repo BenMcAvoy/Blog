@@ -11,6 +11,7 @@ pub fn index() -> Template {
         "index",
         context! {
             age: calculate_age(BIRTHDATE),
+            page: "home",
         },
     )
 }
@@ -19,7 +20,7 @@ pub fn index() -> Template {
 pub fn get_posts(state: &State<PostStorage>) -> Template {
     let posts = &state.posts;
 
-    Template::render("posts", context! { posts })
+    Template::render("posts", context! { posts, page: "posts" })
 }
 
 #[get("/posts/<name>")]
@@ -29,7 +30,8 @@ pub fn get_post(name: String) -> Template {
     Template::render(
         "post",
         context! {
-            html
+            page: "posts",
+            html,
         },
     )
 }
