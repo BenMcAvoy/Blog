@@ -28,3 +28,8 @@ h1, h2 {
 ol {
   @apply list-decimal pl-8 py-2;
 }
+
+.code {
+  background-color: rgb(45, 45, 45);
+  @apply p-2 m-2 rounded-lg;
+}
