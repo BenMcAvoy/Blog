@@ -2,8 +2,11 @@ use std::fs;
 
 use crate::{render::render, utils::snake_to_titlecase};
 use serde::Serialize;
+use std::error::Error;
+use regex::Regex;
 
 const DEFAULT_SUMMARY: &str = "Sorry, we couldn't generate a summary for this";
+const DESCRIPTION_PATTERN: &str = "<div class=\"title\">\\s*#\\s*.*\n([^<]*)\\s*<\\/div>";
 
 #[derive(Debug, Serialize)]
 pub struct Post {
@@ -24,11 +27,21 @@ impl Post {
     }
 }
 
+
+fn get_line_under_header(html: &str) -> Result<String, Box<dyn Error>> {
+    let regex = Regex::new(DESCRIPTION_PATTERN)?;
+    let groups = regex.captures(html).ok_or("No match found")?;
+
+    if let Some(matched_text) = groups.get(1) {
+        return Ok(matched_text.as_str().to_string())
+    }
+
+    Err("No match found".into())
+}
+
 fn generate_summary(text: String) -> String {
-    let result: String = text
-        .lines()
-        .nth(2)
-        .unwrap_or(DEFAULT_SUMMARY)
+    let result: String = get_line_under_header(&text)
+        .unwrap_or(DEFAULT_SUMMARY.into())
         .chars()
         .take(100)
         .collect();
@@ -51,5 +64,5 @@ pub fn load_posts(filenames: Vec<String>) -> Vec<Post> {
 
             Post::new(html, summary, name, path)
         })
-        .collect()
+    .collect()
 }
