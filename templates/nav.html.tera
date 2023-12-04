@@ -7,19 +7,19 @@
 
       <div class="flex justify-end space-x-4 text-black dark:text-white">
         {% if page == 'home' %}
-          <a href="/" class="underline">Home</a>
+          <a href="/" class="underline text-indigo-500 dark:text-indigo-400">Posts</a>
         {% else %}
           <a href="/">Home</a>
         {% endif %}
 
         {% if page == 'posts' %}
-          <a href="/posts/" class="underline">Posts</a>
+          <a href="/posts/" class="underline text-indigo-500 dark:text-indigo-400">Posts</a>
         {% else %}
           <a href="/posts/">Posts</a>
         {% endif %}
 
         {% if page == 'projects' %}
-          <a href="/projects/" class="underline">Projects</a>
+          <a href="/projects/" class="underline text-indigo-500 dark:text-indigo-400">Posts</a>
         {% else %}
           <a href="/projects/">Projects</a>
         {% endif %}
