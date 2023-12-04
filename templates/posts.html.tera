@@ -10,7 +10,7 @@
       <div class="p-8">
         <h1 class="text-indigo-500 dark:text-indigo-400">{{ post.name }}</h2>
         <p class="mt-2 text-gray-500 dark:text-gray-300">{{ post.summary }}</p>
-        <a href="{{ post.url }}" class="mt-4 text-indigo-600 dark:text-indigo-400 hover:underline">Read more<span class="screen-reader-text">Details</span></a>
+        <a href="{{ post.url }}" class="mt-4 text-indigo-500 dark:text-indigo-400 hover:underline">Read more<span class="screen-reader-text">Details</span></a>
       </div>
     </div>
   {% endfor %}
