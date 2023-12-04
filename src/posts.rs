@@ -1,6 +1,6 @@
 use std::fs;
 
-use crate::render::render;
+use crate::{render::render, utils::snake_to_titlecase};
 use serde::Serialize;
 
 const DEFAULT_SUMMARY: &str = "Sorry, we couldn't generate a summary for this";
@@ -47,17 +47,7 @@ pub fn load_posts(filenames: Vec<String>) -> Vec<Post> {
             let text = fs::read_to_string(filepath).expect("Valid path");
             let summary = generate_summary(text);
 
-            let name: String = filename
-                .split('-')
-                .map(|word| {
-                    format!(
-                        "{}{}",
-                        word.chars().next().unwrap().to_uppercase(),
-                        &word[1..]
-                    )
-                })
-                .collect::<Vec<String>>()
-                .join(" ");
+            let name = snake_to_titlecase(filename);
 
             Post::new(html, summary, name, path)
         })
