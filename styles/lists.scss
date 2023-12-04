@@ -1,11 +1,11 @@
-@layer components {
- ul {
-  @apply list-disc pl-5;
- }
- li {
-  @apply mb-1;
- }
- ol {
-  @apply list-decimal pl-5;
- }
+ul {
+  @apply list-disc !important;
+}
+
+ul, ol, li {
+  @apply pl-8 !important;
+}
+
+ol {
+  @apply list-decimal !important;
 }
